@@ -3,129 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Kharcha Rupaiya Pro | Official Site</title>
+    <title>Download Kharcha Rupaiya Pro | V4.2</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #7c3aed;
-            --secondary: #2dd4bf;
-            --bg: #05070a;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(45, 212, 191, 0.05) 0%, transparent 40%);
-            color: white; margin: 0; overflow-x: hidden;
-        }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
-        .logo { font-weight: 800; font-size: 20px; color: var(--primary); letter-spacing: -1px; }
-
-        .hero { text-align: center; padding: 60px 0; position: relative; }
+        :root { --p: #7c3aed; --s: #2dd4bf; --bg: #05070a; --glass: rgba(255, 255, 255, 0.03); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: white; margin: 0; text-align: center; overflow-x: hidden; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* App Icon */
         .app-icon {
-            width: 120px; height: 120px; border-radius: 30px;
-            background: linear-gradient(135deg, var(--primary), #4f46e5);
-            margin: 0 auto 25px; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
-            border: 2px solid rgba(255,255,255,0.1);
-            overflow: hidden;
+            width: 130px; height: 130px; border-radius: 32px; background: linear-gradient(135deg, var(--p), #4f46e5);
+            margin: 0 auto 20px; box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3); border: 2px solid rgba(255,255,255,0.1); overflow: hidden;
         }
         .app-icon img { width: 100%; height: 100%; object-fit: cover; }
 
-        h1 { font-size: clamp(32px, 8vw, 56px); font-weight: 800; margin: 0; line-height: 1.1; }
-        .badge { 
-            background: var(--glass); border: 1px solid var(--border); padding: 6px 16px;
-            border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--secondary);
-            display: inline-block; margin-bottom: 20px;
-        }
+        /* Counter Styling */
+        .counter-box { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 20px; display: inline-flex; align-items: center; gap: 15px; margin-bottom: 30px; }
+        .dot { height: 10px; width: 10px; background: #2ecc71; border-radius: 50%; display: inline-block; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        .stats-bar {
-            display: flex; justify-content: center; gap: 30px; margin: 40px 0;
-            padding: 20px; background: var(--glass); border-radius: 24px; border: 1px solid var(--border);
-        }
-        .stat-item b { display: block; font-size: 20px; color: white; }
+        /* Stats */
+        .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 20px 0; }
+        .stat-item b { display: block; font-size: 20px; }
         .stat-item span { font-size: 12px; color: #64748b; }
 
-        .download-box { margin: 40px 0; }
+        /* Button */
         .btn-main {
-            background: white; color: black; padding: 20px 50px; border-radius: 100px;
+            background: #fff; color: #000; padding: 22px 60px; border-radius: 100px;
             font-weight: 800; font-size: 18px; text-decoration: none; display: inline-block;
-            transition: 0.3s; box-shadow: 0 10px 30px rgba(255,255,255,0.1);
-            cursor: pointer;
+            transition: 0.3s; box-shadow: 0 10px 30px rgba(255,255,255,0.1); cursor: pointer;
         }
-        .btn-main:hover { transform: scale(1.05); background: var(--secondary); }
-        
-        .version-info { font-size: 13px; color: #64748b; margin-top: 15px; }
+        .btn-main:hover { transform: scale(1.05); background: var(--s); }
 
+        /* Loading */
         #loading {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 1000; flex-direction: column; align-items: center; justify-content: center;
         }
-        .spinner { width: 50px; height: 50px; border: 5px solid var(--glass); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; }
+        .spinner { width: 50px; height: 50px; border: 5px solid var(--glass); border-top-color: var(--p); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-
-        iframe#download_frame { display: none; }
     </style>
 </head>
 <body>
 
     <div id="loading">
         <div class="spinner"></div>
-        <p style="margin-top:20px; font-weight:600;">Preparing Secure Download...</p>
+        <p style="margin-top:20px;">Securing Connection...</p>
     </div>
 
-    <iframe id="download_frame"></iframe>
-
     <div class="container">
-        <nav>
-            <div class="logo">KHARCHA RUPAIYA</div>
-            <div class="badge">Official Version</div>
-        </nav>
+        <div class="app-icon">
+            <img src="1767681243760~3.Png" alt="App Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2454/2454282.png'">
+        </div>
 
-        <section class="hero">
-            <div class="app-icon">
-                <img src="1767681243760~3.Png" alt="Kharcha Rupaiya Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2454/2454282.png'">
-            </div>
-            <h1>Smart Savings,<br><span style="color:var(--primary)">Simple Tracking.</span></h1>
-            
-            <div class="stats-bar">
-                <div class="stat-item"><b>10K+</b><span>Downloads</span></div>
-                <div class="stat-item"><b>4.9 ⭐</b><span>Rating</span></div>
-                <div class="stat-item"><b>V4.2</b><span>Version</span></div>
-            </div>
+        <div class="counter-box">
+            <span class="dot"></span>
+            <span id="dl-count" style="font-weight: 600; font-size: 14px; color: #2ecc71;">10,482 People downloaded today</span>
+        </div>
 
-            <div class="download-box">
-                <a onclick="startDownload()" class="btn-main">Download Now</a>
-                <div class="version-info">Kharcha_Rupaiya.apk • 5MB • Safe & Secure</div>
-            </div>
-        </section>
+        <h1 style="font-size: 42px; margin: 0;">Kharcha Rupaiya Pro</h1>
+        <p style="color: #94a3b8; margin-bottom: 30px;">Premium Finance Manager for Smart People</p>
+
+        <div class="stats">
+            <div class="stat-item"><b>31 MB</b><span>File Size</span></div>
+            <div class="stat-item"><b>V4.2</b><span>Version</span></div>
+            <div class="stat-item"><b>4.9 ⭐</b><span>Rating</span></div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a onclick="handleDownload()" class="btn-main">Install APK Now</a>
+            <p style="font-size: 12px; color: #444; margin-top: 20px;">100% Virus Free • Verified by Play Protect</p>
+        </div>
     </div>
 
     <script>
-        function startDownload() {
+        // 1. Fake Real-time Download Counter
+        let count = 10482;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3);
+            document.getElementById('dl-count').innerText = count.toLocaleString() + " People downloaded today";
+        }, 3000);
+
+        // 2. Download Logic
+        function handleDownload() {
             document.getElementById('loading').style.display = 'flex';
             
-            // Your Google Drive Direct Download ID
-            const fileId = '1gmh7GVdwFIjGPdOpHr0fJ61rguzeyFNZ'; 
-            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            // Your Drive ID
+            const fileId = '1gmh7GVdwFIjGPdOpHr0fJ61rguzeyFNZ';
+            
+            // Bypass Large File Warning Link
+            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}&confirm=t`;
 
-            // Small delay for professional feel
             setTimeout(() => {
-                // Using hidden iframe so user stays on the same page
-                document.getElementById('download_frame').src = downloadUrl;
+                // Background download start
+                window.location.href = downloadUrl;
                 
                 setTimeout(() => {
                     document.getElementById('loading').style.display = 'none';
-                    alert("Download started! Check your notification bar.");
-                }, 1000);
-            }, 2000);
+                }, 3000);
+            }, 1500);
         }
     </script>
 </body>
